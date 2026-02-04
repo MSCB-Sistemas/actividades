@@ -38,7 +38,7 @@ function fechaToTimestamp ($cadena)
 //---------------------------------------------------------------------------
 
 function conectarse(){
-	if (!($link=mysql_connect("localhost","root","cavaliere"))){
+	if (!($link=mysql_connect("localhost","root",""))){
 	   echo "Error conectando a la base de datos.";
 	   exit();
 	   }
@@ -67,15 +67,17 @@ function conectarse(){
 	}	
 	
 	function conectarse_deportes(){
-		if (!($link_deportes=mysqli_connect("localhost","systemasmscb","725Popa913@mysql"))){
+		if (!($link_deportes=mysqli_connect("localhost","root",""))){
 		echo "Error conectando a la base de datos.";
 		}
 		if (!mysqli_select_db($link_deportes,"actividades")){
 		echo "Error seleccionando la base de datos.";
 		}
+		// var_dump(mysql_error());
 		return $link_deportes;
 	}
-	
+
+
 	//---Manejo de fechas------------------------------------
 	
 function fecha_mysql_normal_completa($fechavieja){
