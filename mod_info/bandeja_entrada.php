@@ -224,7 +224,7 @@ $(document).ready( function() {
                 
 				<td class="<?php echo $estilo;?>">
                 	<?php
-						$query="select archivo from archivos where inscripcion=".$record["nroInscripcion"];
+						$query="select archivo from archivos where inscripcion=".$record["nroInscripcion"]." and archivo like '".$record["dni"]."%'";
 						$rec=mysqli_query($link,$query);
 						while($archivos=mysqli_fetch_array($rec)){
 							echo "<a href='http://www.bariloche.gov.ar/actividades/archivos/".$archivos["archivo"]."' target='blank'>".$archivos["archivo"]."</a><br>";

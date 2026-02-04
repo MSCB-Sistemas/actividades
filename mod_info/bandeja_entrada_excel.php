@@ -147,6 +147,9 @@ $.ajax({
 			<th class="etiquetas_tabla" >RESPONSABLE</th>
 			<th class="etiquetas_tabla" >CUIL RESPONSABLE</th>
             <th width="60" class="etiquetas_tabla" >ACTIVIDAD</th>
+			<th class="etiquetas_tabla" >CATEGORIA</th>
+			<th class="etiquetas_tabla" >GRUPO</th>
+			<th class="etiquetas_tabla" >PERIODO</th>
     	    <th class="etiquetas_tabla" >LUGAR</th>
 			<th class="etiquetas_tabla" >FECHA DE INSC</th>
             
@@ -168,7 +171,7 @@ $.ajax({
 		
 
 			$query="select a.id as nroInscripcion,dni,apellido,a.nombre as nombrePersona,sexo,fecha_nacimiento,telefono,email,
-			b.actividad as nombreActividad,c.nombre as nombreLugar,apellido_responsable,nombre_responsable,cuil_responsable,fecha_sistema
+			b.actividad as nombreActividad,b.anio_desde,b.anio_hasta,b.grupo,b.periodo,c.nombre as nombreLugar,apellido_responsable,nombre_responsable,cuil_responsable,fecha_sistema
 			from inscripciones a inner join actividades b 
 			ON a.actividad=b.id_actividad
 			inner join lugares c
@@ -191,6 +194,9 @@ $.ajax({
 				<td class="<?php echo $estilo;?>"><?php echo $record["apellido_responsable"]." ".$record["nombre_responsable"];?></td>
                 <td class="<?php echo $estilo;?>"><?php echo $record["cuil_responsable"];?></td>
 				<td class="<?php echo $estilo;?>"><?php echo $record["nombreActividad"];?></td>
+				<td class="<?php echo $estilo;?>"><?php echo $record["anio_desde"]."-".$record["anio_hasta"];?></td>
+				<td class="<?php echo $estilo;?>"><?php echo $record["grupo"];?></td>
+				<td class="<?php echo $estilo;?>"><?php echo $record["periodo"];?></td>
 				<td class="<?php echo $estilo;?>"><?php echo $record["nombreLugar"];?></td>
 				<td class="<?php echo $estilo;?>"><?php echo fecha_mysql_normal_completa($record["fecha_sistema"]);?></td>
                 

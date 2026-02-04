@@ -34,28 +34,7 @@
             </tr>
             <tr>
               <td align="center" valign="middle" bgcolor="#FFFFFF" class="datos"><table width="500" border="0" cellspacing="0" cellpadding="0">
-                
                 <tr>
-                  <?php
-                  // segundos de bloque
-                  if (isset($_GET['res'])) {
-                    ?>
-                   <td align="center" valign="middle"><span class="style6" style = "color: red;">Demasiados intentos fallidos, intente otra vez en <?php echo $_GET['res']  ?> segundos</span></td>
-                   <?php
-                  }
-                  ?>
-
-                   <?php
-                  // error de login
-                  if (isset($_GET['error'])) {
-                    ?>
-                   <td align="center" valign="middle"><span class="style6" style = "color: red;">Usuario o Contraseñas incorrectos</span></td>
-                   <?php
-                  }
-                  ?>
-                </tr>
-
-              <tr>
                     <td align="center" valign="middle"><span class="style6">Para un correcto funcionamiento utilizar Navegador Chrome</span></td>
                   <td align="center" valign="middle"><img src="images/logo_chrome.jpg" width="40" height="41"></td>
                 </tr>

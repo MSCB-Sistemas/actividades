@@ -1,13 +1,11 @@
 <?php
 include("../lib/funciones.php");
-include("login-check.php");
 $nombre=$_POST["usuario"];
 $pass=$_POST["clave"];
 
-	// echo $nombre."--".$pass;
+echo $nombre."--".$pass;
 
 $link=conectarse_deportes();
-// $linkCheck = loginCheck();
 	
 $query="select us,pas from usuarios
 where
@@ -25,19 +23,7 @@ if($filas>=1){
 }
 else
 {
-	// var_dump($link);
-	$res = loginCheck($nombre, $pass, null);
-	if ( $res === false ) {
-		// No hay bloqueo, puede intentar login
-		echo "Intento de login fallido";
-		header("Location:index.php?error=1");
-	} else {
-		// Está bloqueado, $res tiene segundos restantes
-		echo "Usuario bloqueado. Intente en $res segundos.";
-		header("Location:index.php?res=$res");
-	}
-
-	
+	echo "No ingresa";			
 }
 
 /*
@@ -52,6 +38,5 @@ else
 	echo "No ingreso ".$filas;
 	echo $nombre."--".$query."--".$filas;
 }*/
-
 	
 ?>

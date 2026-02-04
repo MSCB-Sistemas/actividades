@@ -44,7 +44,7 @@ $dni=$_POST['txt_documento'];
 $apellido=$_POST['txt_apellido'];
 $nombre=$_POST['txt_nombre'];
 $sexo="-";
-$fecha_nacimiento=$_POST['txt_fecha'];
+$fecha_nacimiento=fecha_normal_mysql($_POST['txt_fecha']);
 $telefono=$_POST['txt_telefono'];
 $email=$_POST['txt_email'];
 
