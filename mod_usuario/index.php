@@ -2,50 +2,51 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>Sistema Administrativo</title>
-
-  <style type="text/css">
-    
-  </style>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
-	<form name="form1" method="post" action="login.php">
-	  <table width="500" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB">
-        <tr align="center" valign="middle" bgcolor="#FFFFFF">
-          <td height="50" align="center" valign="middle" class="style7">ACTIVIDADES DEPORTIVAS</td>
-        </tr>
-        <tr>
-          <td><table width="500" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="250" align="left" valign="top"><table width="500" border="0" cellpadding="0" bgcolor="#FFFFFF">
-                <tr>
-                  <td width="100" align="left" valign="middle" bgcolor="#E1E1E1"><span class="Estilo1 style6">Usuario:</span></td>
-                  <td width="400" align="left" valign="middle" bgcolor="#E1E1E1"><input name="usuario" type="text" class="Controles" id="usuario" size="20" maxlength="50"></td>
-                </tr>
-                <tr>
-                  <td width="100" align="left" valign="middle" bgcolor="#E1E1E1"><span class="Estilo1 style6">Contrase&ntilde;a:</span></td>
-                  <td width="400" align="left" valign="middle" bgcolor="#E1E1E1"><input name="clave" type="password" class="Controles" id="clave" size="20" maxlength="10"></td>
-                </tr>
-                <tr>
-                  <td width="100" height="40" align="left" valign="middle" bgcolor="#FFFFFF"><span class="style6"></span></td>
-                  <td width="400" height="40" align="left" valign="middle" bgcolor="#FFFFFF"><input name="btnLogin" type="submit" id="btnLogin3" value="Entrar" tabindex="3"></td>
-                </tr>
-              </table></td>
-            </tr>
-            <tr>
-              <td align="center" valign="middle" bgcolor="#FFFFFF" class="datos"><table width="500" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td align="center" valign="middle"><span class="style6">Para un correcto funcionamiento utilizar Navegador Chrome</span></td>
-                  <td align="center" valign="middle"><img src="images/logo_chrome.jpg" width="40" height="41"></td>
-                </tr>
-                </table></td>
-            </tr>
-            <tr align="center" valign="bottom">
-              <td height="50" bgcolor="#FFFFFF" class="datos">&nbsp;</td>
-            </tr>
-          </table></td>
-        </tr>
-      </table>
-</form>
+<body class="bg-light">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="row align-items-center mb-4">
+          <div class="col-12 text-center">
+            <div class="d-inline-flex align-items-center">
+              <img src="../images/logo.png" alt="Logo" width="70" height="70" class="me-2">
+              <h3 class="card-title mb-0">Actividades Deportivas</h3>
+            </div>
+          </div>
+        </div>
+          <form name="form1" method="post" action="login.php">
+            <div class="mb-3">
+              <label for="usuario" class="form-label">Usuario</label>
+              <input name="usuario" type="text" class="form-control" id="usuario" maxlength="50" required>
+            </div>
+            <div class="mb-3">
+              <label for="clave" class="form-label">Contraseña</label>
+              <input name="clave" type="password" class="form-control" id="clave" maxlength="10" required>
+            </div>
+            <div class="d-grid gap-2 mb-2">
+              <button name="btnLogin" type="submit" id="btnLogin3" class="btn btn-primary">Entrar</button>
+            </div>
+            <?php
+            if (isset($_GET['error']) && $_GET['error'] == '1') {
+                echo '<div class="alert alert-danger text-center mt-2">Usuario o contraseña incorrectos</div>';
+            }
+            ?>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <span class="text-muted">Para un correcto funcionamiento utilizar Navegador Google Chrome  </span>
+        <img src="../images/logo_chrome.jpg" width="30" height="31" alt="Chrome">
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

@@ -8,17 +8,18 @@ if ($_SESSION['permiso'] != 'autorizado' ){
 }
 //--------------------------------Fin inicio de sesion------------------------
 
-include("../lib/funciones.php");
+include_once("../lib/funciones.php");
 
 
 $link=conectarse();
 
-$clave=md5(utf8_decode($_GET['txt_clave']));
+$clave = password_hash(utf8_decode($_GET['txt_clave']), PASSWORD_DEFAULT);
 $usuario=$_SESSION['id'];
 
 
 
-$query_actualiza_clave="update usuarios set pas='$clave' where id_empleado='$usuario'";
+
+$query_actualiza_clave = "UPDATE usuarios SET pas = '$clave' WHERE id_empleado = '$usuario'";
 
  
 if(mysql_query($query_actualiza_clave,$link)){
