@@ -37,17 +37,20 @@ function fechaToTimestamp ($cadena)
 
 //---------------------------------------------------------------------------
 
-function conectarse(){
-	if (!($link=mysql_connect("localhost","root","cavaliere"))){
-	   echo "Error conectando a la base de datos.";
-	   exit();
-	   }
-	if (!mysql_select_db("turnos_veterinaria",$link)){
-	   echo "Error seleccionando la base de datos.";
-	   exit();
-	   }
-	return $link;
-}
+
+include("inc/conexion.php");
+
+// function conectarse(){
+// 	if (!($link=mysql_connect("localhost","root","cavaliere"))){
+// 	   echo "Error conectando a la base de datos.";
+// 	   exit();
+// 	   }
+// 	if (!mysql_select_db("turnos_veterinaria",$link)){
+// 	   echo "Error seleccionando la base de datos.";
+// 	   exit();
+// 	   }
+// 	return $link;
+// }
 
 	function conectarse_bche(){
 		if (!($link=mssql_connect("10.20.130.6","sa","kristina")))  {
