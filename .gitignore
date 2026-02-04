@@ -1,2 +1,3 @@
 # Comentario: ignora archivo de conexion a base de datos
 /inc/conexion.php
+archivos/*
