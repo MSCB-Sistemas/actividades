@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <style type="text/css">
 <!--
 body {
@@ -24,7 +25,7 @@ body {
   <tr>
     <td width="440" align="left" valign="middle"><table width="100" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="100" align="center" valign="middle"><img src="../images/logo_enc.gif" alt=""  /></td>
+          <td width="50" align="center" valign="middle"><img src="../images/logo_enc.png" width="200" alt=""  /></td>
         </tr>
     </table></td>
     <td valign="top" class="style2"><table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -32,7 +33,7 @@ body {
         <td align="left" valign="bottom" class="titulo_menu">&nbsp;</td>
       </tr>
       <tr>
-        <td align="left" valign="bottom"><span class="titulo_menu"><span class="style6"><span class="Estilo3">Usuario: </span><?php echo utf8_encode($_SESSION['ses_apellido']).", ".$_SESSION['ses_nombre']; ?></span></span></td>
+        <td align="right" valign="bottom"><span class="titulo_menu"><span class="style6"><span class="Estilo3">Usuario: </span><?php echo utf8_encode($_SESSION['ses_apellido']).", ".$_SESSION['ses_nombre']; ?></span></span></td>
       </tr>
     </table></td>
   </tr>

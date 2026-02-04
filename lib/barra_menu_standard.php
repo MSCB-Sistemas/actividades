@@ -30,7 +30,7 @@ body {
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr class="borde_menu">
-    <td height="50" align="left" valign="middle" class="borde_menu"><a href="../mod_principal/menu_principal.php"><img src="../images/inicio.gif" width="40" height="40" border="0" /></a></td>
+    <td height="50" align="left" valign="middle" class="borde_menu"><img src="../images/salir.gif" width="40" height="40" border="0" onclick="cerrarSesion()"/></td>
     <td height="50" align="left" valign="middle" class="borde_menu">&nbsp;</td>
     <td height="50" align="left" valign="middle" class="borde_menu">&nbsp;</td>
     <td height="50" align="left" valign="middle" class="borde_menu">&nbsp;</td>
@@ -39,3 +39,9 @@ body {
 </table>
 </body>
 </html>
+
+<script type="text/javascript">
+  function cerrarSesion(){
+    window.location="../mod_usuario/logout.php";
+  }
+</script>
