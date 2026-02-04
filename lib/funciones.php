@@ -38,7 +38,7 @@ function fechaToTimestamp ($cadena)
 //---------------------------------------------------------------------------
 
 
-include("inc/conexion.php");
+//include("inc/conexion.php");
 
 // function conectarse(){
 // 	if (!($link=mysql_connect("localhost","root","cavaliere"))){
@@ -69,7 +69,7 @@ include("inc/conexion.php");
 		echo utf8_encode($text);
 	}	
 	
-	function conectarse_deportes(){
+	function Conexion_old(){
 		if (!($link_deportes=mysqli_connect("localhost","systemasmscb","725Popa913@mysql"))){
 		echo "Error conectando a la base de datos.";
 		}

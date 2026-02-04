@@ -1,8 +1,9 @@
 ﻿<?php
 
 include("lib/funciones.php");
+include("inc/conexion.php");
 
-$link_deportes=conectarse_deportes();
+$link_deportes=Conexion();
 
 
 ?>

@@ -14,8 +14,9 @@ header("Expires: 0");
 
  
 include("../lib/funciones.php");
+include("../inc/conexion.php");
 
-$link=conectarse_deportes();
+$link=Conexion();
 
 
 $sql ="SELECT apellido,nombre,dni,fecha_nacimiento,telefono,email,fecha_sistema,b.actividad as descripcion,

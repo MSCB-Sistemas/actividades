@@ -21,8 +21,9 @@ include("../lib/sesion.php");
 
 
 include("../lib/funciones.php");
+include("../inc/conexion.php");
 
-$link=conectarse_deportes();
+$link=Conexion();
 
 $usuario=$_SESSION['id'];
 $tipo_usuario=$_SESSION['tipo_usuario'];

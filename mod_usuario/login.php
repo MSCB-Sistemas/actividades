@@ -1,11 +1,12 @@
 <?php
 include("../lib/funciones.php");
+include("../inc/conexion.php");
 $nombre=$_POST["usuario"];
 $pass=$_POST["clave"];
 
 echo $nombre."--".$pass;
 
-$link=conectarse_deportes();
+$link=Conexion();
 	
 $query="select us,pas from usuarios
 where

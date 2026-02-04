@@ -1,8 +1,9 @@
 <?php
 session_start();
 include("lib/funciones.php");
+include("inc/conexion.php");
 
-$link_mysql=conectarse_deportes();
+$link_mysql=Conexion();
 
 $lugar=$_GET["txt_lugar"];
 

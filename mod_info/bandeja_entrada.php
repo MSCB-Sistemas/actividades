@@ -9,8 +9,9 @@ error_reporting(0);
 
 
 include("../lib/funciones.php");
+include("../inc/conexion.php");
 
-$link=conectarse_deportes();
+$link=Conexion();
 
 
 

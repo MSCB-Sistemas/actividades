@@ -3,8 +3,9 @@
 //ini_set('display_errors', 1);
 
 include("lib/funciones.php");
+include("inc/conexion.php");
 
-$link=conectarse_deportes();
+$link=Conexion();
 
 function is_valid_email($str){
  	return (false !== strpos($str, "@") && false !== strpos($str, "."));
