@@ -1,6 +1,4 @@
 <?php
-include_once("../lib/funciones.php");
-include("../inc/conexion.php");
 
 session_start();
 include_once("../lib/funciones.php");
@@ -37,17 +35,4 @@ if ($row = $result->fetch_assoc()) {
 	exit;
 }
 
-/*
-if($filas>=1){
-	header("Location:../mod_info/bandeja_entrada.php");							
-}
-else
-{
-	$mensaje="Usuario o contrase�a no valido <br> ";
-	$destino="index.php";
-	//include("../lib/mensaje_sistema.php");
-	echo "No ingreso ".$filas;
-	echo $nombre."--".$query."--".$filas;
-}*/
-	
 ?>
