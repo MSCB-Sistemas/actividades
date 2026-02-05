@@ -151,8 +151,8 @@ $(document).ready(function() {
             url: "ajax_cargar_datos.php",
             type: "POST",
             data: function (d) {
-                d.fecha_desde = $('#txt_fecha_desde').val();
-                d.fecha_hasta = $('#txt_fecha_hasta').val();
+                d.fecha_desde = "<?php echo isset($_POST['txt_fecha_desde']) ? $_POST['txt_fecha_desde'] : ''; ?>";
+                d.fecha_hasta = "<?php echo isset($_POST['txt_fecha_hasta']) ? $_POST['txt_fecha_hasta'] : ''; ?>";
             }
         },
 
@@ -179,13 +179,7 @@ $(document).ready(function() {
             url: "https://cdn.datatables.net/plug-ins/2.0.0/i18n/es-ES.json"
         }
     });
-
-    $('#form1').on('submit', function(e) {
-        e.preventDefault();
-        table.draw();
-    });
 });
 </script>
-
 </body>
 </html>
