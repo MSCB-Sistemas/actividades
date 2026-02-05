@@ -3,11 +3,11 @@ header('Content-Type: application/json; charset=utf-8');
 include("../inc/conexion.php");
 $link = Conexion();
 
-$start = $_POST['start'];
-$length = $_POST['length'];
-$search_value = $_POST['search']['value'];
-$f_desde = $_POST['fecha_desde'];
-$f_hasta = $_POST['fecha_hasta'];
+$start = intval($_POST['start']);
+$length = intval($_POST['length']);
+$search_value = mysqli_real_escape_string($link, $_POST['search']['value']);
+$f_desde = mysqli_real_escape_string($link, $_POST['fecha_desde']);
+$f_hasta = mysqli_real_escape_string($link, $_POST['fecha_hasta']);
 
 $where = " WHERE 1=1 ";
 if(!empty($f_desde)){
@@ -55,7 +55,8 @@ while($row = mysqli_fetch_array($resultado)){
     
     while($f = mysqli_fetch_array($r_files)){
         $cantidad_archivos++;
-        $lista_archivos .= "<a href='http://www.bariloche.gov.ar/actividades/archivos/".$f['archivo']."' target='_blank' class='d-block text-decoration-none mb-1'>".$f['archivo']."</a>";
+        $nombre_archivo_safe = htmlspecialchars($f['archivo'], ENT_QUOTES, 'UTF-8');
+        $lista_archivos .= "<a href='http://www.bariloche.gov.ar/actividades/archivos/".$nombre_archivo_safe."' target='_blank' class='d-block text-decoration-none mb-1'>".$nombre_archivo_safe."</a>";
     }
 
     if ($cantidad_archivos > 0) {
