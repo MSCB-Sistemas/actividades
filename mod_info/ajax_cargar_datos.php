@@ -3,19 +3,30 @@ header('Content-Type: application/json; charset=utf-8');
 include("../inc/conexion.php");
 $link = Conexion();
 
-$start = $_POST['start'];
-$length = $_POST['length'];
-$search_value = $_POST['search']['value'];
-$f_desde = $_POST['fecha_desde'];
-$f_hasta = $_POST['fecha_hasta'];
+$start = intval($_POST['start']);
+$length = intval($_POST['length']);
+$search_value = mysqli_real_escape_string($link, $_POST['search']['value']);
+$f_desde = mysqli_real_escape_string($link, $_POST['fecha_desde']);
+$f_hasta = mysqli_real_escape_string($link, $_POST['fecha_hasta']);
 
 $where = " WHERE 1=1 ";
-if(!empty($f_desde) && !empty($f_hasta)){
-    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') >= '$f_desde' AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') <= '$f_hasta'";
+if(!empty($f_desde)){
+    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') >= '$f_desde'";
+}
+
+if(!empty($f_hasta)){
+    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') <= '$f_hasta'";
 }
 
 if(!empty($search_value)){
-    $where .= " AND (dni LIKE '%$search_value%' OR apellido LIKE '%$search_value%' OR a.nombre LIKE '%$search_value%') ";
+    $where .= " AND (dni LIKE '%$search_value%' 
+                    OR apellido LIKE '%$search_value%' 
+                    OR a.nombre LIKE '%$search_value%'
+                    OR b.actividad LIKE '%$search_value%'
+                    OR c.nombre LIKE '%$search_value%'
+                    OR telefono LIKE '%$search_value%'
+                    OR email LIKE '%$search_value%'
+                    OR a.id LIKE '%$search_value%') ";
 }
 
 $sql_count = "SELECT count(*) as total FROM inscripciones a INNER JOIN actividades b ON a.actividad = b.id_actividad INNER JOIN lugares c ON b.lugar = c.id_lugar $where";
@@ -44,7 +55,8 @@ while($row = mysqli_fetch_array($resultado)){
     
     while($f = mysqli_fetch_array($r_files)){
         $cantidad_archivos++;
-        $lista_archivos .= "<a href='http://www.bariloche.gov.ar/actividades/archivos/".$f['archivo']."' target='_blank' class='d-block text-decoration-none mb-1'>".$f['archivo']."</a>";
+        $nombre_archivo_safe = htmlspecialchars($f['archivo'], ENT_QUOTES, 'UTF-8');
+        $lista_archivos .= "<a href='http://www.bariloche.gov.ar/actividades/archivos/".$nombre_archivo_safe."' target='_blank' class='d-block text-decoration-none mb-1'>".$nombre_archivo_safe."</a>";
     }
 
     if ($cantidad_archivos > 0) {
