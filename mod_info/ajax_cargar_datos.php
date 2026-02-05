@@ -10,12 +10,23 @@ $f_desde = $_POST['fecha_desde'];
 $f_hasta = $_POST['fecha_hasta'];
 
 $where = " WHERE 1=1 ";
-if(!empty($f_desde) && !empty($f_hasta)){
-    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') >= '$f_desde' AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') <= '$f_hasta'";
+if(!empty($f_desde)){
+    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') >= '$f_desde'";
+}
+
+if(!empty($f_hasta)){
+    $where .= " AND DATE_FORMAT(fecha_sistema,'%Y-%m-%d') <= '$f_hasta'";
 }
 
 if(!empty($search_value)){
-    $where .= " AND (dni LIKE '%$search_value%' OR apellido LIKE '%$search_value%' OR a.nombre LIKE '%$search_value%') ";
+    $where .= " AND (dni LIKE '%$search_value%' 
+                    OR apellido LIKE '%$search_value%' 
+                    OR a.nombre LIKE '%$search_value%'
+                    OR b.actividad LIKE '%$search_value%'
+                    OR c.nombre LIKE '%$search_value%'
+                    OR telefono LIKE '%$search_value%'
+                    OR email LIKE '%$search_value%'
+                    OR a.id LIKE '%$search_value%') ";
 }
 
 $sql_count = "SELECT count(*) as total FROM inscripciones a INNER JOIN actividades b ON a.actividad = b.id_actividad INNER JOIN lugares c ON b.lugar = c.id_lugar $where";
