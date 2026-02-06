@@ -1,8 +1,8 @@
 <?php
-
-session_start();
 include_once("../lib/funciones.php");
 include("../inc/conexion.php");
+session_start();
+
 
 $nombre = isset($_POST["usuario"]) ? trim($_POST["usuario"]) : '';
 $pass = isset($_POST["clave"]) ? $_POST["clave"] : '';
@@ -22,7 +22,9 @@ $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
 	if (password_verify($pass, $row['pas'])) {
 		$_SESSION['permiso'] = 'autorizado';
-		$_SESSION['id'] = $row['id_empleado'];
+		$_SESSION['id'] = $row['id'];
+		$_SESSION['ses_apellido'] = "";
+		$_SESSION['ses_nombre'] = $row['us'];
 		header("Location:../mod_info/bandeja_entrada.php");
 		exit;
 
@@ -34,5 +36,18 @@ if ($row = $result->fetch_assoc()) {
 	header("Location: index.php?error=1");
 	exit;
 }
+
+/*
+if($filas>=1){
+header("Location:../mod_info/bandeja_entrada.php");
+}
+else
+{
+$mensaje="Usuario o contrase�a no valido <br> ";
+$destino="index.php";
+//include("../lib/mensaje_sistema.php");
+echo "No ingreso ".$filas;
+echo $nombre."--".$query."--".$filas;
+}*/
 
 ?>
