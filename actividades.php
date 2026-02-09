@@ -3,6 +3,8 @@ session_start();
 include("lib/funciones.php");
 include("inc/conexion.php");
 
+error_reporting(0);
+
 $link_mysql=Conexion();
 
 $lugar=$_GET["txt_lugar"];
@@ -11,7 +13,7 @@ $lugar=$_GET["txt_lugar"];
 
 <div class="form-group row">
 	<label for="example-text-input" class="col-3 col-form-label">Actividades</label><div class="col-9">
-	  <select class="form-control" name="txt_actividad" id="txt_actividad" required="" placeholder="Primero debe selleccionar la fecha" onChange="anios();">
+	  <select class="form-control" name="txt_actividad" id="txt_actividad" required="" placeholder="Primero debe seleccionar la fecha" onChange="anios();">
         <option  value="" selected="selected"></option>
         <?php
 			
