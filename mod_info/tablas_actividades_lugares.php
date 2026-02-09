@@ -30,6 +30,12 @@
 		}
     </style>
 <body>
+    <table width="100" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td width="50" align="center" valign="middle"><img src="../images/logo_enc.png" width="200" alt="" /></td>
+        </tr>
+    </table>
+
     <div class="row mb-4">
         <div class="col-12 text-start">
             <a href="bandeja_entrada.php" class="btn btn-secondary btn-sm shadow-sm">
@@ -41,6 +47,9 @@
             <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear lugar
             </a>
+        </div>
+        <div>
+            <hr class="mt-3 mb-0">
         </div>
     </div>
     
