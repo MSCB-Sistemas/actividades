@@ -4,12 +4,12 @@
 <body>
   <table width="100%">
     <tr class="borde_menu">
-      <td height="50" width="8%">
-        <button class="btn btn-danger btn-sm" onclick="cerrarSesion()">Cerrar sesión</button>
+      <td height="50" width="10%">
+        <button class="btn btn-danger btn-sm" onclick="cerrarSesion()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
       </td>
       <td>
         <a href="form_nueva_actividad.php">
-          <button class="btn btn-primary btn-sm">Actividades/lugares</button>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Actividades/lugares</button>
         </a>
       </td>
     </tr>

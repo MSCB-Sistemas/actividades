@@ -21,6 +21,7 @@
               <span class="titulo_menu">
                 <span class="style6">
                   <span class="Estilo3">Usuario: </span>
+                  <?php echo $_SESSION; ?>
                   <?php echo $_SESSION['ses_apellido'] . ", " . $_SESSION['ses_nombre']; ?>
                 </span>
               </span>

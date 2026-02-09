@@ -1,8 +1,5 @@
 <?php 
 error_reporting(0);
-//--------------------------------Inicio de sesion------------------------
-//include("../lib/sesion.php"); 
-//--------------------------------Fin inicio de sesion------------------------
 
 include("../lib/funciones.php");
 include("../inc/conexion.php");
@@ -61,7 +58,7 @@ mysqli_set_charset($link, "utf8")
 
     <div class="row">
         <div class="col-12">
-            <h3 class="mb-3">Bandeja de entrada</h3>
+            <h3 class="mb-3"><i class="fas fa-inbox"></i> Bandeja de entrada</h3>
         </div>
     </div>
 	

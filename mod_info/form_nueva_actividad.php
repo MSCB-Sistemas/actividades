@@ -35,7 +35,9 @@
             <div class="card">
                 <div class="card-body d-flex">
                     <div class="row align-items-end">
-                        <a href="bandeja_entrada.php"><button class="btn btn-primary btn-sm">Inicio</button></a>
+                        <a href="bandeja_entrada.php">
+                            <button class="btn btn-primary btn-sm"><i class="fas fa-home"></i></button>
+                        </a>
                     </div>
                 </div>
             </div>
