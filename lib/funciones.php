@@ -22,4 +22,14 @@ function fecha_mysql_normal($fechavieja){
     list($a,$m,$d)=explode("-",$fechavieja);
     return $d."-".$m."-".$a;
 };
+
+function verificar_contrasenia_md5($contrasenia, $hash) {
+    $input_hash = md5($contrasenia);
+
+    if ($input_hash === $hash) {
+        return true; 
+    } else {
+        return false;
+    }
+}
 ?>
