@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <body>
-  <table width="100%">
-    <tr class="borde_menu">
-      <td height="50" width="10%">
+  <div class="row mb-4">
+    <div class="col-12 text-start">
+      <a>
         <button class="btn btn-danger btn-sm" onclick="cerrarSesion()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
-      </td>
-      <td>
-        <a href="form_nueva_actividad.php">
-          <button class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Actividades/lugares</button>
-        </a>
-      </td>
-    </tr>
-  </table>
+      </a>
+      <a href="tablas_actividades_lugares.php">
+        <button class="btn btn-primary btn-sm"><i class="fas fa-table"></i> Actividades/lugares</button>
+      </a>
+      <a href="../mod_usuario/form_generar_usuario.php">
+        <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Generar nuevo usuario</button>
+      </a>
+    </div>
+    <div>
+      <hr class="mt-3 mb-0">
+    </div>
+  </div>
 </body>
-
 </html>
 
 <script type="text/javascript">

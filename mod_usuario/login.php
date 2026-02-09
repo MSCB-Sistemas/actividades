@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include_once("../lib/funciones.php");
 include("../inc/conexion.php");
@@ -21,7 +20,8 @@ $result = $stmt->get_result();
 if ($row = $result->fetch_assoc()) {
 	if (verificar_contrasenia_md5($pass, $row['pas'])) {
 		$_SESSION['permiso'] = 'autorizado';
-		$_SESSION['id'] = $row['id_empleado'];
+		$_SESSION['id'] = $row['id'];
+		$_SESSION['us'] = $row['us'];
 		header("Location:../mod_info/bandeja_entrada.php");
 		exit;
 	} else {

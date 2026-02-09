@@ -30,20 +30,25 @@
 		}
     </style>
 <body>
-    <div class="row mb-3">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body d-flex">
-                    <div class="row align-items-end">
-                        <a href="bandeja_entrada.php">
-                            <button class="btn btn-primary btn-sm"><i class="fas fa-home"></i></button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div class="row mb-4">
+        <div class="col-12 text-start">
+            <a href="bandeja_entrada.php" class="btn btn-secondary btn-sm shadow-sm">
+                <i class="fas fa-arrow-left me-1"></i> Volver a la bandeja
+            </a>
+            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+                <i class="fas fa-plus-circle me-1"></i> Crear actividad
+            </a>
+            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+                <i class="fas fa-plus-circle me-1"></i> Crear lugar
+            </a>
         </div>
     </div>
-        
+    
+    <!-- Tabla de actividades -->
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3"><i class="fas fa-calendar-alt"></i> Actividades</h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
@@ -70,6 +75,13 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div><br>
+
+    <!-- Tabla de lugares -->
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3"><i class="fas fa-map-marker-alt"></i> Lugares</h3>
         </div>
     </div>
     <div class="row">

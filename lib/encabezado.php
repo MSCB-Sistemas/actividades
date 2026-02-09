@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -21,8 +27,7 @@
               <span class="titulo_menu">
                 <span class="style6">
                   <span class="Estilo3">Usuario: </span>
-                  <?php echo $_SESSION; ?>
-                  <?php echo $_SESSION['ses_apellido'] . ", " . $_SESSION['ses_nombre']; ?>
+                  <?php if (isset($_SESSION['us'])) echo $_SESSION['us']; else echo "No encontrado"; ?>
                 </span>
               </span>
             </td>
@@ -30,10 +35,6 @@
         </table>
       </td>
     </tr>
-    <!-- <tr bgcolor="#5B6946">
-      <td height="5"></td>
-      <td height="5" valign="top" class="style2"></td>
-    </tr> -->
   </table>
 </body>
 
