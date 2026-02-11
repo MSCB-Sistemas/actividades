@@ -178,7 +178,7 @@ $recordset_lugares = mysqli_query($link_deportes, $query_lugares);
             <div class="text-center mt-4 pt-2 border-top">
                 <button type="submit" class="btn btn-primary px-5 btn-sm font-weight-bold">CONFIRMAR INSCRIPCIÓN</button>
                 <div class="mt-2">
-                    <a href="index.php" class="text-danger small font-weight-bold">CANCELAR</a>
+                    <a href="https://www.bariloche.gov.ar/" class="text-danger small font-weight-bold">CANCELAR</a>
                 </div>
             </div>
 
