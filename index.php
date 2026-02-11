@@ -71,7 +71,7 @@ $recordset_lugares = mysqli_query($link_deportes, $query_lugares);
     <div class="main-card">
         <div class="text-center mb-3">
             <img src="images/encabezado.jpg" alt="Logo" class="img-fluid" style="max-height: 45px;">
-            <h6 class="mt-2 font-weight-bold">Preinscripción - Gimnasio Nro 5</h6>
+            <h6 class="mt-2 font-weight-bold">Preinscripción - Actividades deportivas</h6>
             <hr class="my-2">
         </div>
 

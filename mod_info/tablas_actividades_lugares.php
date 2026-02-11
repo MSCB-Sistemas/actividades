@@ -47,7 +47,7 @@ include("../inc/AuthLogin.php");
             <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear actividad
             </a>
-            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+            <a href="form_lugar.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear lugar
             </a>
         </div>
