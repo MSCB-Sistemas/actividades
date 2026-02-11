@@ -8,13 +8,10 @@
 	text-align: left;
 }
 
-.borde_menu{
+.borde_menu {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #5b6946;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #5b6946;
+	border-bottom-color: #000000;
 }
 
 .titulopantalla {
