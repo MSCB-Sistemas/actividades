@@ -44,7 +44,7 @@ include("../inc/AuthLogin.php");
             <a href="bandeja_entrada.php" class="btn btn-secondary btn-sm shadow-sm">
                 <i class="fas fa-arrow-left me-1"></i> Volver a la bandeja
             </a>
-            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+            <a href="form_actividades.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear actividad
             </a>
             <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
