@@ -1,3 +1,6 @@
+<?php
+include("../inc/AuthLogin.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

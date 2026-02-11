@@ -1,3 +1,6 @@
+<?php
+include("../inc/AuthLogin.php");
+?>
 <html>
     <head>
         <title>Bandeja de actividades y lugares</title>

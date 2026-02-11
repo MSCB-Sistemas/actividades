@@ -10,9 +10,9 @@
       <a href="tablas_actividades_lugares.php">
         <button class="btn btn-primary btn-sm"><i class="fas fa-table"></i> Actividades/lugares</button>
       </a>
-      <a href="../mod_usuario/form_generar_usuario.php">
+      <!-- <a href="../mod_usuario/form_generar_usuario.php">
         <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Generar nuevo usuario</button>
-      </a>
+      </a> -->
     </div>
     <div>
       <hr class="mt-3 mb-0">

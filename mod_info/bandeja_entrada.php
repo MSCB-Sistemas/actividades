@@ -3,6 +3,7 @@ error_reporting(0);
 
 include("../lib/funciones.php");
 include("../inc/conexion.php");
+include("../inc/AuthLogin.php");
 
 $link = Conexion();
 mysqli_set_charset($link, "utf8")
