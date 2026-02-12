@@ -131,7 +131,7 @@ include("../inc/AuthLogin.php");
                 processing: true,
                 serverSide: true,
                 pageLength: 5,
-                lengthMenu: false,
+                lengthMenu: [5, 10, 25, 50],
 
 
                 ajax: {
@@ -183,7 +183,7 @@ include("../inc/AuthLogin.php");
                 processing: true,
                 serverSide: true,
                 pageLength: 5,
-                lengthMenu: false,
+                lengthMenu: [5, 10, 25, 50],
 
 
                 ajax: {
