@@ -1,9 +1,13 @@
 <?php
-include("../inc/AuthLogin.php");
-require_once ('../inc/conexion.php');
+include("../../inc/AuthLogin.php");
+require_once ('../../inc/conexion.php');
 ?>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style> body { font-family: sans-serif; background-color: #f4f4f4; } </style>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -43,12 +47,12 @@ require_once ('../inc/conexion.php');
     <body>
         <table width="100" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="50" align="center" valign="middle"><img src="../images/logo_enc.png" width="200" alt="" /></td>
+                <td width="50" align="center" valign="middle"><img src="../../images/logo_enc.png" width="200" alt="" /></td>
             </tr>
         </table>
         <div class="row mb-4">
             <div class="col-12 text-start">
-                <a href="tablas_actividades_lugares.php" class="btn btn-secondary btn-sm shadow-sm">
+                <a href="../tablas_actividades_lugares.php" class="btn btn-secondary btn-sm shadow-sm">
                     <i class="fas fa-arrow-left me-1"></i> Volver a la bandeja
                 </a>
             </div>
@@ -79,19 +83,27 @@ require_once ('../inc/conexion.php');
                 </div>
             </div>
         </form>
+
+        <!-- Procesar el formulario -->
+        <?php
+            if (isset($_POST['btnGenerarLugar'])) {
+                $conexion = Conexion();
+
+                $nombre_lugar = $_POST['nombre_lugar'];
+                $direccion = $_POST['direccion'];
+
+                $sql = "INSERT INTO lugares (nombre, direccion, activo) VALUES (?, ?, 1)";
+                $stmt = mysqli_prepare($conexion, $sql);
+                mysqli_stmt_bind_param($stmt, "ss", $nombre_lugar, $direccion);
+                $query = mysqli_stmt_execute($stmt);
+
+                if ($query) {
+                    echo "<script>swal.fire('Éxito', 'Nuevo lugar creado correctamente.', 'success');</script>";
+                } else {
+                    echo "<script>swal.fire('Error', 'Hubo un error al crear el lugar.', 'error');</script>";
+                }
+            }
+        ?>
+        <!-- Fin del proceso -->
     </body>
 </html>
-
-<?php
-    if (isset($_POST['btnGenerarLugar'])) {
-        $conexion = Conexion();
-
-        $nombre_lugar = $_POST['nombre_lugar'];
-        $direccion = $_POST['direccion'];
-
-        $sql = "INSERT INTO lugares (nombre, direccion, activo) VALUES ('$nombre_lugar', '$direccion', 1)";
-        mysqli_query($conexion, $sql);
-
-        echo "<script>alert('Nuevo lugar creado: $nombre_lugar');</script>";
-    }
-?>
