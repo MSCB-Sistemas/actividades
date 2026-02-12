@@ -1,4 +1,5 @@
 <?php
+include("../../inc/AuthLogin.php");
 include("../../lib/funciones.php");
 include("../../inc/conexion.php");
 $link_deportes = Conexion();

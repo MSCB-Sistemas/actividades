@@ -10,6 +10,7 @@
 <body>
 
 <?php
+include("../../inc/AuthLogin.php");
 include("../../lib/funciones.php");
 include("../../inc/conexion.php");
 $estado = $_GET['estado'];
