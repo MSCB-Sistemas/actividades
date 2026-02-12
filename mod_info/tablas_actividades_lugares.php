@@ -16,21 +16,21 @@ include("../inc/AuthLogin.php");
         .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .etiquetas_tabla { font-size: 0.85em; background-color: #e9ecef !important; }
 
-		#tabla_actividades {
-        	font-size: 0.85rem;
-		}
+        #tabla_actividades {
+            font-size: 0.85rem;
+        }
 
-		#tabla_actividades th, 
-		#tabla_actividades td {
-			padding-top: 5px;
-			padding-bottom: 5px;
-			vertical-align: middle;
-		}
-		
-		#tabla_actividades .btn {
-			padding: 2px 8px;
-			font-size: 0.8rem;
-		}
+        #tabla_actividades th, 
+        #tabla_actividades td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            vertical-align: middle;
+        }
+        
+        #tabla_actividades .btn {
+            padding: 2px 8px;
+            font-size: 0.8rem;
+        }
     </style>
 <body>
     <table width="100" border="0" cellpadding="0" cellspacing="0">
@@ -44,7 +44,7 @@ include("../inc/AuthLogin.php");
             <a href="bandeja_entrada.php" class="btn btn-secondary btn-sm shadow-sm">
                 <i class="fas fa-arrow-left me-1"></i> Volver a la bandeja
             </a>
-            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+            <a href="actividades/form_actividades.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear actividad
             </a>
             <a href="lugar/form_lugar.php" class="btn btn-primary btn-sm shadow-sm">
@@ -56,7 +56,6 @@ include("../inc/AuthLogin.php");
         </div>
     </div>
     
-    <!-- Tabla de actividades -->
     <div class="row">
         <div class="col-12">
             <h3 class="mb-3"><i class="fas fa-calendar-alt"></i> Actividades</h3>
@@ -80,6 +79,7 @@ include("../inc/AuthLogin.php");
                                 <th class="etiquetas_tabla">PERIODO</th>
                                 <th class="etiquetas_tabla">ACTIVO</th>
                                 <th class="etiquetas_tabla">TIPO</th>
+                                <th class="etiquetas_tabla">ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,7 +90,6 @@ include("../inc/AuthLogin.php");
         </div>
     </div><br>
 
-    <!-- Tabla de lugares -->
     <div class="row">
         <div class="col-12">
             <h3 class="mb-3"><i class="fas fa-map-marker-alt"></i> Lugares</h3>
@@ -150,14 +149,35 @@ include("../inc/AuthLogin.php");
                     { data: 'horarios' },
                     { data: 'nombreLugar' },
                     { data: 'periodo' },
-                    { data: 'activo' },
-                    { data: 'tipo' }
+                    { data: 'activo'},
+                    { data: 'tipo' },
+                    { 
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, row) {
+                            var idEncoded = btoa(row.id); 
+                            
+                            var isActive = (row.activo === 'Sí');
+                            var estadoObjetivo = isActive ? 0 : 1;
+                            
+                            var btnEditar = `<a href="actividades/form_editar_actividades.php?id=${idEncoded}" class="btn btn-primary me-1" title="Editar"><i class="fas fa-edit"></i></a>`;
+                            
+                            var claseEstado = isActive ? 'btn-danger' : 'btn-success';
+                            var textoEstado = isActive ? 'Desactivar' : 'Activar';
+                            var iconoEstado = isActive ? '<i class="fas fa-ban me-1"></i>' : '<i class="fas fa-check me-1"></i>';
+                            
+                            var btnEstado = `<a href="actividades/cambiar_estado_actividades.php?id=${idEncoded}&estado=${estadoObjetivo}" class="btn ${claseEstado}">${iconoEstado}${textoEstado}</a>`;
+
+                            return '<div class="d-flex">' + btnEditar + btnEstado + '</div>';
+                        }
+                    }
                 ],
 
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/2.0.0/i18n/es-ES.json"
                 }
             });
+
             var tableLugares = new DataTable('#tabla_lugares', {
                 responsive: true,
                 processing: true,

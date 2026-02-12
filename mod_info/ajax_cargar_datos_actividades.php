@@ -45,7 +45,7 @@ $sql = "SELECT
         FROM actividades a 
         INNER JOIN lugares c ON a.lugar = c.id_lugar 
         $where
-        ORDER BY 1 ASC
+        ORDER BY a.activo DESC, a.actividad ASC, a.anio_desde DESC, a.grupo ASC
         LIMIT $start, $length";
 
 $resultado = mysqli_query($link, $sql);
@@ -53,6 +53,7 @@ $datos = [];
 
 while($row = mysqli_fetch_array($resultado)){
     $datos[] = [
+        "id" => $row['id'],
         "actividad" => $row['actividad'],
         "anio_desde" => $row['anio_desde'],
         "anio_hasta" => $row['anio_hasta'],
