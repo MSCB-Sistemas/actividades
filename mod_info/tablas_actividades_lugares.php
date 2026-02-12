@@ -47,7 +47,7 @@ include("../inc/AuthLogin.php");
             <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear actividad
             </a>
-            <a href="bandeja_entrada.php" class="btn btn-primary btn-sm shadow-sm">
+            <a href="lugar/form_lugar.php" class="btn btn-primary btn-sm shadow-sm">
                 <i class="fas fa-plus-circle me-1"></i> Crear lugar
             </a>
         </div>
@@ -180,8 +180,24 @@ include("../inc/AuthLogin.php");
                         data: null,
                         orderable: false,
                         render: function (data, type, row) {
-                            return '<button class="btn btn-sm btn-primary">Editar</button> ' +
-                                   '<button class="btn btn-sm btn-danger">Eliminar</button>';
+                            var idEncoded = btoa(row.id); 
+                            
+                            var isActive = (row.activo === 'Sí');
+                            var estadoObjetivo = isActive ? 0 : 1;
+                            
+                            var btnEditar = `<a href="lugar/form_editar_lugar.php?id_lugar=${idEncoded}" class="btn btn-sm btn-primary me-1" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </a>`;
+                            
+                            var claseEstado = isActive ? 'btn-danger' : 'btn-success';
+                            var textoEstado = isActive ? 'Desactivar' : 'Activar';
+                            var iconoEstado = isActive ? '<i class="fas fa-ban me-1"></i>' : '<i class="fas fa-check me-1"></i>';
+                            
+                            var btnEstado = `<a href="lugar/cambiar_estado_lugar.php?id_lugar=${idEncoded}&estado=${estadoObjetivo}" class="btn btn-sm ${claseEstado}" title="${textoEstado}">
+                                                ${iconoEstado}${textoEstado}
+                                            </a>`;
+
+                            return '<div class="d-flex">' + btnEditar + btnEstado + '</div>';
                         }
                     }
                 ],
